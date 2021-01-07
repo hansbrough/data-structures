@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
+/*--components--*/
+import Overview from "./components/Overview";
+import Queue from "./components/Queue";
+/*--styles--*/
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <Router>
+      <div className="App">
+      <header className="App-header" style={{height:'12rem', minHeight:"auto"}}>
+        <h1 style={{marginBottom:'.5rem'}}>Data Structures</h1>
+        <p style={{marginTop:'.5rem'}}>Play with Data Structures in JS</p>
+        <nav>
+          <NavLink exact to="/" activeClassName="active">Overview</NavLink>
+          <NavLink exact to="/queue" activeClassName="active">Queue</NavLink>
+        </nav>
       </header>
-    </div>
+      <Route render={(props) => {
+        const { location } = props;
+        return (
+          <Switch location={location}>
+            <Route exact path="/" component={Overview} />
+            <Route exact path="/queue" component={Queue} />
+          </Switch>
+        )}
+      }
+      />
+      </div>
+    </Router>
   );
 }
 
