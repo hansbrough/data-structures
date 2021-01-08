@@ -1,34 +1,9 @@
-import {React, useState, useEffect, useRef} from 'react';
+import {React, useState, useRef} from 'react';
+import createQueue from '../structures/queue';
 
 const QueuePage = () => {
   const [queue, setQueue] = useState();
   const enqueueInput = useRef(null);
-
-  useEffect(() => {
-    console.log("queue:",queue);
-  },[queue]);
-
-  // define a Queue
-  const createQueue = () => {
-    const queue = [];
-    return {
-      enqueue(item) {
-        return queue.unshift(item);
-      },
-      dequeue() {
-        return queue.pop();
-      },
-      peek() {
-        return queue[queue.length -1];
-      },
-      get length() {
-        return queue.length;
-      },
-      isEmpty() {
-        return queue.length === 0;
-      }
-    };
-  }
 
   const handleEnqueueClick = () => {
     queue.enqueue(enqueueInput.current.value);

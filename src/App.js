@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
 /*--components--*/
 import Overview from "./components/Overview";
 import Queue from "./components/Queue";
+import PriorityQueue from "./components/PriorityQueue";
 /*--styles--*/
 import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
         <nav>
           <NavLink exact to="/" activeClassName="active">Overview</NavLink>
           <NavLink exact to="/queue" activeClassName="active">Queue</NavLink>
+          <NavLink exact to="/priority-queue" activeClassName="active">Priority Queue</NavLink>
         </nav>
       </header>
       <Route render={(props) => {
@@ -23,6 +25,7 @@ function App() {
           <Switch location={location}>
             <Route exact path="/" component={Overview} />
             <Route exact path="/queue" component={Queue} />
+            <Route exact path="/priority-queue" component={PriorityQueue} />
           </Switch>
         )}
       }
