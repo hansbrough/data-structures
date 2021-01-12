@@ -14,10 +14,11 @@ const QueuePage = () => {
     <main>
       <h2>Queue</h2>
       <h3>A FIFO structure</h3>
+      <p>A "queue" is a collection of items that obeys the principle of "first in, first out".</p>
       <div>
         {!queue && (
           <>
-          <p>Create a Queue</p>
+          <p><b>Create a Queue</b></p>
           <button onClick={() => setQueue(createQueue)}>Create</button>
           </>
         )}
@@ -29,8 +30,8 @@ const QueuePage = () => {
 
           <p>Manipulate Queue</p>
           <input ref={enqueueInput} />
-          <button onClick={handleEnqueueClick} disabled={false}>Add</button>
-          <button style={{display:"block", marginTop:"1rem"}} onClick={() => queue.dequeue()} disabled={false}>Remove</button>
+          <button onClick={handleEnqueueClick} disabled={false}>Add (enqueue)</button>
+          <button style={{display:"block", marginTop:"1rem"}} onClick={() => console.log(queue.dequeue())} disabled={false}>Remove (dequeue)</button>
           </>
         )}
       </div>

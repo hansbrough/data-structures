@@ -18,7 +18,7 @@ const PriorityQueue = () => {
       <div>
       {!queue && (
         <>
-        <p>Create a Queue</p>
+        <p><b>Create a Queue</b></p>
         <button onClick={() => setQueue(createPriorityQueue)}>Create a PriorityQueue</button>
         </>
       )}
