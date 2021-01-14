@@ -6,6 +6,7 @@ import PriorityQueue from "./components/PriorityQueue";
 import Stack from "./components/Stack";
 import LinkedList from "./components/LinkedList";
 import Graph from "./components/Graph";
+import Tree from "./components/Tree";
 /*--styles--*/
 import './App.css';
 
@@ -23,6 +24,7 @@ function App() {
           <NavLink exact to="/stack" activeClassName="active">Stack</NavLink>
           <NavLink exact to="/linked-list" activeClassName="active">LinkedList</NavLink>
           <NavLink exact to="/graph" activeClassName="active">Graph</NavLink>
+          <NavLink exact to="/tree" activeClassName="active">Tree</NavLink>
         </nav>
       </header>
       <Route render={(props) => {
@@ -35,6 +37,7 @@ function App() {
             <Route exact path="/stack" component={Stack} />
             <Route exact path="/linked-list" component={LinkedList} />
             <Route exact path="/graph" component={Graph} />
+            <Route exact path="/tree" component={Tree} />
           </Switch>
         )}
       }
