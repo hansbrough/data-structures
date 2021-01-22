@@ -7,6 +7,8 @@ const GraphPage = () => {
   const pushEdgeInput1 = useRef(null);
   const pushEdgeInput2 = useRef(null);
   const getInput = useRef(null);
+  const bfsInput = useRef(null);
+  const dfsInput = useRef(null);
 
   const handlePushNodeClick = () => {
     graph.addNode(pushNodeInput.current.value);
@@ -24,6 +26,33 @@ const GraphPage = () => {
     getInput.current.value = '';
     return item;
   };
+
+  const handleBfsClick = () => {
+    console.log("---BFS---");
+    const nodeKey = bfsInput.current.value;
+    graph.bfs(nodeKey, node => {
+      console.log(node.key)
+    });
+  }
+  const handleDfsClick = () => {
+    console.log("---DFS---");
+    const nodeKey = dfsInput.current.value;
+    graph.dfs(nodeKey, node => {
+      console.log(node.key)
+    });
+  }
+/*--Example graph data for BFS example--*/
+// const exampleNodes = ['a', 'b', 'c', 'd', 'e', 'f']
+// const exampleEdges = [
+//   ['a', 'b'],
+//   ['a', 'e'],
+//   ['a', 'f'],
+//   ['b', 'd'],
+//   ['b', 'e'],
+//   ['c', 'b'],
+//   ['d', 'c'],
+//   ['d', 'e']
+// ]
 
   return (
     <main>
@@ -54,8 +83,20 @@ const GraphPage = () => {
 
           <p>Print</p>
           <button style={{display:'block'}} onClick={() => console.log(graph.print())} disabled={false}>Print Nodes</button>
-          </>
 
+          <h4>Breadth First Search on Graph</h4>
+          <p>An algorithm that starts at one node and visits neighboring nodes as widely as possible before going further down any other path.</p>
+          <p>Enter a node key as a point from which to start a search</p>
+          <input placeholder="Node key" ref={bfsInput} />
+          <button onClick={handleBfsClick}>BFS</button> (see console)
+
+          <h4>Depth First Search on Graph</h4>
+          <p>An algorithm that starts at one node and uses recursion to travel as deeply down a path of neighboring nodes as possible, before coming back up and trying other paths.</p>
+          <p>Enter a node key as a point from which to start a search</p>
+          <input placeholder="Node key" ref={dfsInput} />
+          <button onClick={handleDfsClick}>DFS</button> (see console)
+
+          </>
         )}
       </div>
     </main>
