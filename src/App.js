@@ -8,6 +8,7 @@ import LinkedList from "./components/LinkedList";
 import Graph from "./components/Graph";
 import Tree from "./components/Tree";
 import BinaryTree from "./components/BinaryTree";
+import Sorting from "./components/Sorting";
 /*--styles--*/
 import './App.css';
 
@@ -27,6 +28,7 @@ function App() {
           <NavLink exact to="/graph" activeClassName="active">Graph</NavLink>
           <NavLink exact to="/tree" activeClassName="active">Tree</NavLink>
           <NavLink exact to="/binary-tree" activeClassName="active">Binary Tree</NavLink>
+          <NavLink exact to="/sorting" activeClassName="active">Sorting</NavLink>
         </nav>
       </header>
       <Route render={(props) => {
@@ -41,6 +43,7 @@ function App() {
             <Route exact path="/graph" component={Graph} />
             <Route exact path="/tree" component={Tree} />
             <Route exact path="/binary-tree" component={BinaryTree} />
+            <Route exact path="/sorting" component={Sorting} />
           </Switch>
         )}
       }
